@@ -1,0 +1,25 @@
+.Navbar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5265c4;
+}
+
+.Navbar > .nav-logo {
+  font-weight: 700;
+  font-size: 21px;
+  margin: 15px;
+  color: white;
+}
+.Navbar > .nav-items > a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 15px;
+  position: relative;
+  opacity: 0.9;
+}
+.Navbar > .nav-items > a:hover {
+  opacity: 1;
+}
