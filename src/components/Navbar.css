@@ -6,7 +6,7 @@
   background: #5265c4;
 }
 
-.Navbar > .nav-logo {
+.Navbar span {
   font-weight: 700;
   font-size: 21px;
   margin: 15px;
@@ -22,4 +22,9 @@
 }
 .Navbar > .nav-items > a:hover {
   opacity: 1;
+}
+
+.cart-logo {
+  width: 50px;
+  height: 50px;
 }

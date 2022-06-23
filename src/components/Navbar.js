@@ -1,11 +1,13 @@
 import "./Navbar.css";
-import React from "react";
-
+import carrito from "../assets/carrito.png";
 function Navbar() {
   return (
     <header>
       <div className="Navbar">
-        <span className="nav-logo">Burguers</span>
+        <div>
+          <span className="nav-logo">Burguers</span>
+          <img className="cart-logo" src={carrito}></img>
+        </div>
         <div className="nav-items">
           <a href="#">Inicio</a>
           <a href="#">About us</a>
