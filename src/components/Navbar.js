@@ -1,12 +1,13 @@
 import "./Navbar.css";
-import carrito from "../assets/carrito.png";
+
+import CartWidget from "./CartWidget.js";
 function Navbar() {
   return (
     <header>
       <div className="Navbar">
         <div>
           <span className="nav-logo">Burguers</span>
-          <img className="cart-logo" src={carrito}></img>
+          <CartWidget />
         </div>
         <div className="nav-items">
           <a href="#">Inicio</a>
