@@ -1,6 +1,5 @@
 import "./ItemListContainer.css";
 import Contador from "./contador";
-import Card from "./Card";
 
 function ItemListContainer() {
   return (

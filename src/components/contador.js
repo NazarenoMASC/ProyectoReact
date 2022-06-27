@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "./Card";
-
+import "./contador.css";
 function Contador() {
   const [num, setNum] = useState(0);
   const sumar = () => {
@@ -18,8 +18,8 @@ function Contador() {
   };
   return (
     <>
-      <div>
-        <Card producto="Hamburguesa doble" stock="20" />
+      <div className="contador-div">
+        <Card producto="Hamburguesa doble" stock="Stock:20" />
         <p>{num}</p>
         <button onClick={sumar}>Suma!</button>
         <button onClick={restar}>Restar!</button>
