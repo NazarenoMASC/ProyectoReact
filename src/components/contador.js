@@ -1,15 +1,16 @@
 import { useState } from "react";
 import Card from "./Card";
 import "./contador.css";
-function Contador() {
+
+function Contador({ stock }) {
   const [num, setNum] = useState(0);
   const sumar = () => {
-    if (num < 20) {
+    if (num < stock) {
       setNum(num + 1);
     }
   };
   const restar = () => {
-    if ((num > 0) & (num <= 20)) {
+    if ((num > 0) & (num <= stock)) {
       setNum(num - 1);
     }
   };
