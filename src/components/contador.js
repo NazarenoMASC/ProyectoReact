@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Card from "./Card";
 import "./contador.css";
 
 function Contador({ stock }) {
@@ -20,7 +19,6 @@ function Contador({ stock }) {
   return (
     <>
       <div className="contador-div">
-        <Card producto="Hamburguesa doble" stock="Stock:20" />
         <p>{num}</p>
         <button onClick={sumar}>Suma!</button>
         <button onClick={restar}>Restar!</button>

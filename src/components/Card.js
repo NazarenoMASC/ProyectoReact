@@ -3,10 +3,11 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div>
-      <h2>{props.producto}</h2>
-      <p>{props.descripcion}</p>
-      <p>{props.stock}</p>
+    <div className="cards">
+      <img src={props.imagen}></img>
+      <h3>{props.producto}</h3>
+      <p>{props.precio}</p>
+      <button> Ver más detalles </button>
     </div>
   );
 }

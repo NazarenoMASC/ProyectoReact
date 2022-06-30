@@ -1,0 +1,11 @@
+[
+    {"titulo": "Acer", "imagen": "../assets/acer.jpg" , "precio": 35.999, "id": 1},
+    {"titulo": "Advance", "imagen": "../assets/advance.jpg" , "precio": 30.000, "id": 2},
+    {"titulo": "Apple", "imagen": "../assets/apple.jpg" , "precio": 37.000, "id": 3},
+    {"titulo": "Dell","imagen": "../assets/dell.jpg" , "precio": 39.000, "id": 4},
+    {"titulo": "HP", "imagen": "../assets/hp1.jpg" , "precio": 34.000, "id": 5}, 
+    {"titulo": "Huawei","imagen": "../assets/huawei.jpg" , "precio": 35.000, "id": 6},
+    {"titulo": "Lenovo","imagen": "../assets/lenovo.jpg" , "precio": 32.999, "id": 7},
+    {"titulo": "LG","imagen": "../assets/lg.jpg" , "precio": 35.500, "id": 8},
+    {"titulo": "Samsung","imagen": "../assets/samsung.jpg" , "precio": 36.000, "id": 9}
+]

@@ -1,11 +1,18 @@
 import "./ItemListContainer.css";
 import Contador from "./contador";
+import ItemList from "./ItemList";
 
 function ItemListContainer() {
   return (
     <section>
-      <Contador stock={20} />
-      <h2> Acá iría mi ItemListContainer</h2>
+      <div>
+        <h2>Catalogo de productos</h2>
+        <h3> Elegí tu producto </h3>
+      </div>
+      <div>
+        <ItemList />
+      </div>
+      <Contador />
     </section>
   );
 }
