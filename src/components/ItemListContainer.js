@@ -1,19 +1,23 @@
 import "./ItemListContainer.css";
-import Contador from "./contador";
-import ItemList from "./ItemList";
+import { useState, useEffect } from "react";
+import Card from "./Card";
 
 function ItemListContainer() {
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    setTimeout(() => {
+      fetch("data.json")
+        .then((resp) => resp.json())
+        .then((data) => setInfo(data));
+    }, 2000);
+  }, []);
   return (
-    <section>
-      <div>
-        <h2>Catalogo de productos</h2>
-        <h3> Elegí tu producto </h3>
-      </div>
-      <div>
-        <ItemList />
-      </div>
-      <Contador />
-    </section>
+    <div className="container-cards">
+      {info &&
+        info.map((i) => (
+          <Card producto={i.titulo} precio={i.precio} imagen={i.imagen} />
+        ))}
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 import "./Card.css";
 import React from "react";
+import ItemDetail from "./ItemDetail";
 
 function Card(props) {
   return (
@@ -7,7 +8,7 @@ function Card(props) {
       <img src={props.imagen}></img>
       <h3>{props.producto}</h3>
       <p>{props.precio}</p>
-      <button> Ver más detalles </button>
+      <button onClick={<ItemDetail />}> Ver más detalles </button>
     </div>
   );
 }
