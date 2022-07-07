@@ -7,7 +7,10 @@ function Navbar() {
     <header>
       <div className="Navbar">
         <div>
-          <span className="nav-logo">Tienda</span>
+          <NavLink to="/">
+            {" "}
+            <span className="nav-logo">Tienda</span>{" "}
+          </NavLink>
           <CartWidget />
         </div>
         <div className="nav-items">
