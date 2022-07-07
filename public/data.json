@@ -1,12 +1,12 @@
 [
-    {"id": 1,"categoria":"A", "name": "Acer", "imagen": "../assets/acer.jpg" , "precio": 35.999},
-    {"id": 2,"categoria":"A", "name": "Advance", "imagen": "../assets/advance.jpg" , "precio": 30.000},
-    {"id": 3,"categoria":"B", "name": "Apple", "imagen": "../assets/apple.jpg" , "precio": 37.000},
-    {"id": 4,"categoria":"C", "name": "Dell","imagen": "../assets/dell.jpg" , "precio": 39.000},
-    {"id": 5,"categoria":"B", "name": "HP", "imagen": "../assets/hp1.jpg" , "precio": 34.000}, 
-    {"id": 6,"categoria":"A", "name": "Huawei","imagen": "../assets/huawei.jpg" , "precio": 35.000},
-    {"id": 7,"categoria":"B", "name": "Lenovo","imagen": "../assets/lenovo.jpg" , "precio": 32.999},
-    {"id": 8,"categoria":"A", "name": "LG","imagen": "../assets/lg.jpg" , "precio": 35.500},
-    {"id": 9,"categoria":"C", "name": "Samsung","imagen": "../assets/samsung.jpg" , "precio": 36.000}
+    {"id":"1","categoria":"A", "name": "Acer", "imagen": "../assets/acer.jpg" , "precio": "35.999"},
+    {"id":"2","categoria":"A", "name": "Advance", "imagen": "../assets/advance.jpg" , "precio": "30.000"},
+    {"id":"3","categoria":"B", "name": "Apple", "imagen": "../assets/apple.jpg" , "precio": "37.000"},
+    {"id":"4","categoria":"C", "name": "Dell","imagen": "../assets/dell.jpg" , "precio": "39.000"},
+    {"id":"5","categoria":"B", "name": "HP", "imagen": "../assets/hp1.jpg" , "precio": "34.000"}, 
+    {"id":"6","categoria":"A", "name": "Huawei","imagen": "../assets/huawei.jpg" , "precio": "35.000"},
+    {"id":"7","categoria":"B", "name": "Lenovo","imagen": "../assets/lenovo.jpg" , "precio": "32.999"},
+    {"id":"8","categoria":"A", "name": "LG","imagen": "../assets/lg.jpg" , "precio": "35.500"},
+    {"id":"9","categoria":"C", "name": "Samsung","imagen": "../assets/samsung.jpg" , "precio": "36.000"}
 
 ]

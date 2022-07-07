@@ -5,9 +5,11 @@ import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
   const [cardsFetch, setInfo] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { catid } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     setTimeout(() => {
       fetch("../data.json")
         .then((resp) => resp.json())
@@ -17,14 +19,15 @@ function ItemListContainer() {
           } else {
             setInfo(data);
           }
-        });
-    }, 2000);
+        })
+        .finally(() => setIsLoading(false));
+    }, 1000);
   }, [catid]);
   console.log(catid);
-  return (
-    <div>
-      <ItemList cards={cardsFetch}></ItemList>
-    </div>
+  return isLoading ? (
+    <h2>Cargando..</h2>
+  ) : (
+    <ItemList cards={cardsFetch}></ItemList>
   );
 }
 

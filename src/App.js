@@ -16,7 +16,7 @@ function App() {
             path="/categoria/:catid"
             element={<ItemListContainer greeting={"filtrado"} />}
           />
-          <Route path="/item" element={<ItemDetailContainer />} />
+          <Route path="/item/:iditem" element={<ItemDetailContainer />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
