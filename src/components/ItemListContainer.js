@@ -1,22 +1,29 @@
 import "./ItemListContainer.css";
-import { useState, useEffect } from "react";
-import Card from "./Card";
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
-  const [info, setInfo] = useState([]);
+  const [cardsFetch, setInfo] = useState([]);
+  const { catid } = useParams();
+
   useEffect(() => {
     setTimeout(() => {
-      fetch("data.json")
+      fetch("../data.json")
         .then((resp) => resp.json())
-        .then((data) => setInfo(data));
+        .then((data) => {
+          if (catid) {
+            setInfo(data.filter((item) => item.categoria === catid));
+          } else {
+            setInfo(data);
+          }
+        });
     }, 2000);
-  }, []);
+  }, [catid]);
+  console.log(catid);
   return (
-    <div className="container-cards">
-      {info &&
-        info.map((i) => (
-          <Card producto={i.titulo} precio={i.precio} imagen={i.imagen} />
-        ))}
+    <div>
+      <ItemList cards={cardsFetch}></ItemList>
     </div>
   );
 }

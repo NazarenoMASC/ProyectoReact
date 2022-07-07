@@ -1,11 +1,13 @@
 import "./ItemDetail.css";
+import React from "react";
 
 function ItemDetail(props) {
   return (
-    <>
-      <h3>{props.titulo}</h3>
-      <p>{props.precio}</p>
-    </>
+    <div>
+      <h3>{props.cards.name}</h3>
+      <p>{props.cards.categoria}</p>
+      <p>{props.cards.precio}</p>
+    </div>
   );
 }
 

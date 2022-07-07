@@ -1,19 +1,20 @@
 import "./ItemDetailContainer.css";
-import { useState } from "react";
 import ItemDetail from "./ItemDetail";
+import { useState, useEffect } from "react";
 
 function ItemListContainer() {
-  const [info, setInfo] = useState([]);
-  setTimeout(() => {
-    fetch("data.json")
-      .then((resp) => resp.json())
-      .then((data) => setInfo(data));
-  }, 1000);
-
+  const [cardsFetch, setInfo] = useState([]);
+  useEffect(() => {
+    setTimeout(() => {
+      fetch("../data.json")
+        .then((resp) => resp.json())
+        .then((data) => setInfo(data.find((item) => item.id === "1")));
+    }, 2000);
+  }, []);
   return (
-    <div className="container-cards">
-      <ItemDetail titulo={info.titulo} precio={info.precio} />
-    </div>
+    <>
+      <ItemDetail cards={cardsFetch}></ItemDetail>
+    </>
   );
 }
 

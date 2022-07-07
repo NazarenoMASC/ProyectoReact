@@ -1,19 +1,19 @@
 import "./ItemList.css";
-import ItemListContainer from "./ItemListContainer";
-import Contador from "./contador";
+import Card from "./Card";
 
-function ItemList() {
+function ItemList(props) {
   return (
-    <section>
-      <div>
-        <h2>Catalogo de productos</h2>
-        <h3> Elegí tu producto </h3>
-      </div>
-      <div>
-        <ItemListContainer />
-      </div>
-      <Contador />
-    </section>
+    <div className="container-cards">
+      {props.cards.map((card) => (
+        <Card
+          name={card.name}
+          id={card.id}
+          categoria={card.categoria}
+          imagen={card.imagen}
+          precio={card.precio}
+        ></Card>
+      ))}
+    </div>
   );
 }
 

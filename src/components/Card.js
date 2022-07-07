@@ -1,14 +1,14 @@
 import "./Card.css";
 import React from "react";
-import ItemDetail from "./ItemDetail";
 
 function Card(props) {
   return (
-    <div className="cards">
+    <div className="cards container-cards">
       <img src={props.imagen}></img>
-      <h3>{props.producto}</h3>
+      <h3>{props.name}</h3>
+      <p>{props.id}</p>
+      <p>{props.categoria}</p>
       <p>{props.precio}</p>
-      <button onClick={<ItemDetail />}> Ver más detalles </button>
     </div>
   );
 }
