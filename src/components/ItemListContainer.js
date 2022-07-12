@@ -4,7 +4,7 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
-  const [cardsFetch, setInfo] = useState([]);
+  const [fetchItem, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { catid } = useParams();
 
@@ -24,10 +24,11 @@ function ItemListContainer() {
     }, 1000);
   }, [catid]);
   console.log(catid);
-  return isLoading ? (
-    <h2>Cargando..</h2>
-  ) : (
-    <ItemList cards={cardsFetch}></ItemList>
+  return (
+    <>
+      {isLoading === true && <Loading />}
+      <ItemList cards={fetchItem}></ItemList>
+    </>
   );
 }
 

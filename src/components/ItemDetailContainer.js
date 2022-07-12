@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
-  const [cardsFetch, setInfo] = useState([]);
+  const [fetchItem, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { iditem } = useParams();
   useEffect(() => {
@@ -16,10 +16,11 @@ function ItemDetailContainer() {
       setIsLoading(false);
     }, 1000);
   }, []);
-  return isLoading ? (
-    <h2>Cargando..</h2>
-  ) : (
-    <ItemDetail cards={cardsFetch}></ItemDetail>
+  return (
+    <>
+      {isLoading === true && <Loading />}
+      <ItemDetail cards={fetchItem}></ItemDetail>
+    </>
   );
 }
 
