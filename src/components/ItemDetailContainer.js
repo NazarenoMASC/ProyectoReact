@@ -3,7 +3,7 @@ import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function ItemListContainer() {
+function ItemDetailContainer() {
   const [cardsFetch, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { iditem } = useParams();
@@ -23,4 +23,4 @@ function ItemListContainer() {
   );
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;
