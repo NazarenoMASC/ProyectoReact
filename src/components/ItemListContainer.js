@@ -2,7 +2,7 @@ import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-
+import Loading from "./Loading";
 function ItemListContainer() {
   const [fetchItem, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
