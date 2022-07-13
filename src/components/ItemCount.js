@@ -1,26 +1,23 @@
 import { Card, Col } from "react-bootstrap";
 import React, { useState } from "react";
 
-function ItemCount(props) {
-  const [cant, setCant] = useState(1);
-  const { onAdd } = props;
+function ItemCount({ onAdd }) {
+  const initial = 1;
+  const stock = 5;
+  const [count, setCant] = useState(initial);
 
   const sumar = () => {
-    if (cant < props.stock) {
-      setCant(cant + 1);
+    if (count < stock) {
+      setCant(count + 1);
     }
   };
 
   const quitar = () => {
-    if (cant > props.inicial) {
-      setCant(cant - 1);
+    if (count > initial) {
+      setCant(count - 1);
     }
   };
   const guardar = (event) => setCant(event.target.value);
-
-  const agregarCarrito = () => {
-    onAdd(cant);
-  };
 
   return (
     <>
@@ -34,14 +31,20 @@ function ItemCount(props) {
               <input
                 type="text"
                 class="form-control"
-                value={cant}
+                value={count}
                 onChange={guardar}
               />
               <button onClick={sumar} className="input-group-text">
                 +
               </button>
             </div>
-            <button onClick={agregarCarrito}>Agregar al carrito</button>
+            <button
+              onClick={() => {
+                onAdd(count);
+              }}
+            >
+              Agregar al carrito
+            </button>
           </Card.Body>
         </Card>
       </Col>

@@ -1,4 +1,3 @@
-import "./CartWidget.css";
 import carrito from "../assets/carrito.png";
 
 function CartWidget() {

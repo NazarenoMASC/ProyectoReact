@@ -1,4 +1,3 @@
-import "./ItemList.css";
 import Card from "./Card";
 
 function ItemList(props) {
