@@ -31,10 +31,15 @@ export const CartProvider = ({ defaultvalue = [], children }) => {
   const clearCart = () => {
     setCart([]);
   };
+  const removeFromCart = (id) => {
+    const newCart = [...cart].filter((element) => element.item.id !== id);
+    setCart(newCart);
+  };
   const context = {
     cart,
     clearCart,
     addToCart,
+    removeFromCart,
   };
   return (
     <>
