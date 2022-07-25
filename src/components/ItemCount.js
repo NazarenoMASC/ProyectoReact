@@ -1,52 +1,54 @@
-import { Card, Col } from "react-bootstrap";
-import React, { useState } from "react";
+import React from "react";
 
-function ItemCount(props) {
-  const [cant, setCant] = useState(1);
-  const { onAdd } = props;
+import { useState } from "react";
 
-  const sumar = () => {
-    if (cant < props.stock) {
-      setCant(cant + 1);
-    }
-  };
+const ItemCount = ({ initial, stock, onAdd }) => {
+  const [qty, setQty] = useState(initial);
 
-  const quitar = () => {
-    if (cant > props.inicial) {
-      setCant(cant - 1);
-    }
-  };
-  const guardar = (event) => setCant(event.target.value);
-
-  const agregarCarrito = () => {
-    onAdd(cant);
+  const addProduct = (num) => {
+    setQty(qty + num);
   };
 
   return (
-    <>
-      <Col xs={7}>
-        <Card>
-          <Card.Body>
-            <div class="input-group mb-3">
-              <button onClick={quitar} className="input-group-text">
-                -
-              </button>
-              <input
-                type="text"
-                class="form-control"
-                value={cant}
-                onChange={guardar}
-              />
-              <button onClick={sumar} className="input-group-text">
-                +
-              </button>
-            </div>
-            <button onClick={agregarCarrito}>Agregar al carrito</button>
-          </Card.Body>
-        </Card>
-      </Col>
-    </>
+    <div className="count-container">
+      <div className="count-container__contador">
+        <button
+          className="count-container__button"
+          onClick={() => addProduct(-1)}
+          disabled={qty === initial ? true : null}
+        >
+          -
+        </button>
+        <span className="count-container__qty">{qty}</span>
+        <button
+          className="count-container__button"
+          onClick={() => addProduct(+1)}
+          disabled={qty === stock ? true : null}
+        >
+          +
+        </button>
+      </div>
+
+      <button
+        className="button-primary"
+        onClick={() => {
+          onAdd(qty);
+        }}
+        disabled={stock === 0 ? true : null}
+      >
+        Añadir
+      </button>
+
+      <button
+        onClick={() => {
+          onAdd(qty);
+        }}
+        className="button-primary button-finalizar-compra"
+      >
+        Finalizar compra
+      </button>
+    </div>
   );
-}
+};
 
 export default ItemCount;

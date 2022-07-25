@@ -1,16 +1,23 @@
 import "./ItemDetail.css";
 import ItemCount from "./ItemCount";
-import { Link } from "react-router-dom";
+
 import { Col, Container, Row } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 
 function ItemDetail(props) {
+<<<<<<< HEAD
   const [goToCart, setGoToCart] = useState(false);
 
   const onAdd = (quantity) => {
     setGoToCart(true);
   };
 
+=======
+  const cartContext = useContext(CartContext);
+  const { addToCart } = cartContext;
+  console.log(addToCart);
+>>>>>>> 502131c6b8ecce101dc53499d81dec507b3c9702
   return (
     <div>
       <Container className="card-detail">
@@ -38,11 +45,15 @@ function ItemDetail(props) {
                 </Col>
               </Row>
               <Row>
+<<<<<<< HEAD
                 {goToCart ? (
                   <Link to="/cart">Terminar compra</Link>
                 ) : (
                   <ItemCount inicial="1" stock="5" onAdd={onAdd} />
                 )}
+=======
+                <ItemCount stock={props.cards.stock} initial={1} />
+>>>>>>> 502131c6b8ecce101dc53499d81dec507b3c9702
               </Row>
             </Container>
           </Col>
