@@ -1,17 +1,17 @@
 import "./App.css";
+import React from "react";
 import Navbar from "./components/Navbar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import NotFound from "./pages/NotFound";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ItemCount from "./components/ItemCount";
-
+import { Routes, Route } from "react-router-dom";
+import Cart from "./components/Cart";
+import CartProvider from "./context/CartContext";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <CartProvider value="Naza">
         <Navbar />
-
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
           <Route
@@ -19,10 +19,10 @@ function App() {
             element={<ItemListContainer greeting={"filtrado"} />}
           />
           <Route path="/item/:iditem" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<ItemListContainer />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import CartWidget from "./CartWidget.js";
+import CartWidget from "./CartWidget";
 
 function Navbar() {
   return (
@@ -8,10 +8,12 @@ function Navbar() {
       <div className="Navbar">
         <div>
           <NavLink to="/">
-            {" "}
-            <span className="nav-logo">Tienda</span>{" "}
+            
+            <span className="nav-logo">Tienda</span>
           </NavLink>
-          <CartWidget />
+          <NavLink to="/cart">
+            <CartWidget />
+          </NavLink>
         </div>
         <div className="nav-items">
           <NavLink to="/">Todos los productos</NavLink>

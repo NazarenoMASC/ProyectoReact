@@ -1,4 +1,5 @@
 import "./CartWidget.css";
+import React, { useContext } from "react";
 import carrito from "../assets/carrito.png";
 
 function CartWidget() {

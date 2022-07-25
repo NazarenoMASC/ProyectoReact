@@ -5,23 +5,24 @@ import { Col, Container, Row } from "react-bootstrap";
 import React, { useState } from "react";
 
 function ItemDetail(props) {
-  const [cantCart, setCantCart] = useState(0);
-  const [counter, setCounter] = useState(true);
-  const [compra, setCompra] = useState(false);
+  const [goToCart, setGoToCart] = useState(false);
 
-  const onAdd = (cantidad) => {
-    setCantCart(cantidad);
-    setCounter(false);
-    setCompra(true);
+  const onAdd = (quantity) => {
+    setGoToCart(true);
   };
-  console.log(cantCart);
+
   return (
     <div>
-      <Container>
+      <Container className="card-detail">
         <Row>
           <Col>
             <Container>
               <Row>
+                <Row>
+                  <Col>
+                    <img src={props.cards.imagen}></img>
+                  </Col>
+                </Row>
                 <Col>
                   <h1>{props.cards.name}</h1>
                 </Col>
@@ -37,13 +38,10 @@ function ItemDetail(props) {
                 </Col>
               </Row>
               <Row>
-                {counter === true && (
+                {goToCart ? (
+                  <Link to="/cart">Terminar compra</Link>
+                ) : (
                   <ItemCount inicial="1" stock="5" onAdd={onAdd} />
-                )}
-                {compra === true && (
-                  <Col>
-                    <Link to={`/cart`}> Finalizar compra</Link>
-                  </Col>
                 )}
               </Row>
             </Container>

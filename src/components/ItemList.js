@@ -6,6 +6,7 @@ function ItemList(props) {
     <div className="container-cards">
       {props.cards.map((card) => (
         <Card
+          key={card.id}
           name={card.name}
           id={card.id}
           categoria={card.categoria}

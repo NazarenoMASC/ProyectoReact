@@ -1,7 +1,11 @@
 import "./Card.css";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+
 function Card(props) {
+  const nombre = useContext(CartContext);
+  console.log("Card:", nombre);
   return (
     <div className="cards container-cards">
       <img src={props.imagen}></img>
