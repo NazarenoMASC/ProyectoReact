@@ -1,10 +1,10 @@
 import "./ItemList.css";
 import Card from "./Card";
 
-function ItemList(props) {
+function ItemList({ cards = [] }) {
   return (
     <div className="container-cards">
-      {props.cards.map((card) => (
+      {cards.map((card) => (
         <Card
           key={card.id}
           name={card.name}

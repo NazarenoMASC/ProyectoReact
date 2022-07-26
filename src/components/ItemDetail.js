@@ -3,12 +3,14 @@ import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import React, { useState } from "react";
+import { useCartContext } from "../context/CartContext";
 
-function ItemDetail(props) {
+function ItemDetail({ cards = [] }) {
   const [goToCart, setGoToCart] = useState(false);
-
+  const { addProduct } = useCartContext();
   const onAdd = (quantity) => {
     setGoToCart(true);
+    addProduct(cards, quantity);
   };
 
   return (
@@ -20,21 +22,21 @@ function ItemDetail(props) {
               <Row>
                 <Row>
                   <Col>
-                    <img src={props.cards.imagen}></img>
+                    <img src={cards.imagen}></img>
                   </Col>
                 </Row>
                 <Col>
-                  <h1>{props.cards.name}</h1>
+                  <h1>{cards.name}</h1>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <p>{props.cards.categoria}</p>
+                  <p>{cards.categoria}</p>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <div>${props.cards.precio}</div>
+                  <div>${cards.precio}</div>
                 </Col>
               </Row>
               <Row>

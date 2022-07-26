@@ -7,10 +7,11 @@ import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart";
 import CartProvider from "./context/CartContext";
+
 function App() {
   return (
     <div className="App">
-      <CartProvider value="Naza">
+      <CartProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
