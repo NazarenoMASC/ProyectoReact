@@ -1,33 +1,47 @@
 import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
 function ItemListContainer() {
-  const [fetchItem, setInfo] = useState([]);
+  const [data, setInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { catid } = useParams();
 
   useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      fetch("../data.json")
-        .then((resp) => resp.json())
-        .then((data) => {
-          if (catid) {
-            setInfo(data.filter((item) => item.categoria === catid));
-          } else {
-            setInfo(data);
-          }
-        })
-        .finally(() => setIsLoading(false));
-    }, 1000);
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, "productos");
+
+    if (catid) {
+      const queryFilter = query(
+        queryCollection,
+        where("categoria", "==", catid)
+      );
+      getDocs(queryFilter).then((res) =>
+        setInfo(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+      );
+    } else {
+      getDocs(queryCollection).then((res) =>
+        setInfo(
+          res.docs.map((product) => ({ id: product.id, ...product.data() }))
+        )
+      );
+    }
   }, [catid]);
-  console.log(catid);
+
   return (
     <>
       {isLoading === true && <Loading />}
-      <ItemList cards={fetchItem}></ItemList>
+      <ItemList cards={data}></ItemList>
     </>
   );
 }
